@@ -21,7 +21,7 @@
   // 크리마 위젯이 남아 있어도(해지 전·캐시) 우리 것만 보이게
   var st = document.createElement('style');
   st.textContent = '.crema-product-reviews,.crema-reviews,.crema-popup{display:none !important}' +
-    '.pr-board-hide{display:none !important}';
+    '.pr-board-hide{display:none !important}[data-pr-mall].crema-hide{display:block !important}';
   (document.head || document.documentElement).appendChild(st);
   CSS.forEach(function (f) {
     var l = document.createElement('link'); l.rel = 'stylesheet'; l.href = BASE + f;
@@ -87,7 +87,7 @@
     if (slot) {
       var keep = function () { if (rv && rv.hidden) rv.hidden = false; counts(); };
       keep();
-      var ph = document.createElement('div'); slot.appendChild(ph);
+      var ph = document.createElement('div'); ph.setAttribute('data-pr-mall', 'photos'); slot.appendChild(ph);
       window.PloonieReviews.mount(ph, { type: 'photos', product: no, device: DEVICE, base: window.PLOONIE_REVIEWS_BASE });
       if (!ph.innerHTML && rv) rv.hidden = true;
       else { var k = 0, t = setInterval(function () { keep(); if (++k > 30) clearInterval(t); }, 500); }

@@ -21,7 +21,7 @@
   // 크리마 위젯이 남아 있어도(해지 전·캐시) 우리 것만 보이게
   var st = document.createElement('style');
   st.textContent = '.crema-product-reviews,.crema-reviews,.crema-popup{display:none !important}' +
-    '.pr-board-hide{display:none !important}[data-pr-mall].crema-hide{display:block !important}';
+    '.pr-board-hide{display:none !important}html body [data-pr-mall][data-pr-mall].crema-hide{display:block !important}';
   (document.head || document.documentElement).appendChild(st);
   CSS.forEach(function (f) {
     var l = document.createElement('link'); l.rel = 'stylesheet'; l.href = BASE + f;
@@ -110,6 +110,21 @@
     window.PloonieReviews.mount(all, { type: 'board', device: DEVICE });
   }
 
+  // 해지 전 크리마가 우리 칸에 숨김표(crema-hide, style display:none)를 붙이면 떼어 낸다
+  function unhide() {
+    qsa('[data-pr-mall]').forEach(function (e) {
+      if (e.classList.contains('crema-hide')) e.classList.remove('crema-hide');
+      if (e.style.display === 'none') e.style.display = '';
+    });
+  }
+  function guard() {
+    unhide();
+    if (!window.MutationObserver) return;
+    var mo = new MutationObserver(unhide);
+    mo.observe(document.body, { attributes: true, subtree: true, attributeFilter: ['class', 'style'] });
+    setTimeout(function () { mo.disconnect(); }, 60000);
+  }
+
   // 쓰기 화면(안전장치로 넘어온 글 채우기)은 ploonie-review-submit.js 가 스스로 처리한다
   ready(function () {
     loadJs(0, function () {
@@ -120,6 +135,7 @@
         run(watchCards, 'cards');
         run(detail, 'detail');
         run(board, 'board');
+        run(guard, 'guard');
       }).catch(function (e) { console.warn('[플루니 리뷰] 데이터 실패', e); });
     });
   });

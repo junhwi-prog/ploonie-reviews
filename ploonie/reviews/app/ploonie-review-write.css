@@ -1,0 +1,58 @@
+/* 플루니 자체 리뷰 쓰기 창 — 크리마 쓰기 창(PC 396×616 팝업 / 모바일 전체 화면) 실측값 (2026-10-20)
+ * 적립금 문구(안내 칸·조건 칸·버튼 문구)는 사용자 결정으로 뺐다. 나머지 칸·크기·색은 크리마와 같다. */
+.prw-dim { position: fixed; inset: 0; z-index: 2147483000; }
+.prw { position: fixed; z-index: 2147483001; left: 50%; top: 50%; width: 396px; height: 616px; margin: -308px 0 0 -198px; font-family: 돋움, Dotum, Helvetica, 'Apple SD Gothic Neo', sans-serif; font-size: 12px; color: #000; -webkit-text-size-adjust: 100%; }
+.prw *, .prw *::before, .prw *::after { box-sizing: border-box; margin: 0; padding: 0; }
+.prw__front { position: relative; width: 377px; height: 582px; background: #fff; border: 1px solid #eee; border-radius: 5px; box-shadow: rgba(0, 0, 0, .4) 0 12px 20px 0; overflow: hidden; }
+.prw--m { left: 0; top: 0; width: 100%; height: 100%; margin: 0; }
+.prw--m .prw__front { width: 100%; height: 100%; border-radius: 0; box-shadow: none; }
+
+.prw__head { position: relative; height: 83px; padding: 15px; border-bottom: 1px solid #ededed; }
+.prw__pimg { position: absolute; left: 15px; top: 15px; width: 52px; height: 52px; object-fit: cover; display: block; }
+.prw__msg { margin: 0 38px 0 62px; padding-top: 18px; }
+.prw--m .prw__msg { padding-top: 26px; }
+.prw__pname { font-size: 13px; line-height: 16px; font-weight: 700; color: #3e3e3e; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.prw__close { position: absolute; right: 0; top: 0; width: 53px; height: 68px; padding: 0 15px 0 20px; display: flex; align-items: center; background: none; border: 0; cursor: pointer; }
+.prw__close svg { display: block; }
+
+.prw__body { position: absolute; left: 0; right: 0; top: 82px; bottom: 66px; padding: 24px; overflow-y: scroll; }
+.prw--m .prw__body { top: 82px; bottom: 66px; overflow-y: auto; }
+.prw__greet { padding-bottom: 24px; border-bottom: 1px solid #ededed; text-align: center; font-size: 14px; line-height: 20px; color: #3e3e3e; }
+.prw__greet b { font-weight: 700; }
+.prw__sec { margin-top: 20px; }
+.prw__greet + .prw__sec { margin-top: 24px; }
+.prw__sh { font-size: 13px; line-height: 16px; font-weight: 700; color: #484848; }
+.prw__sb { margin-top: 9px; font-size: 0; }
+
+.prw__ta { position: relative; border: 1px solid #d4d4d4; }
+.prw__ta textarea { display: block; width: 100%; min-height: 72px; padding: 9px 10px; border: 0; outline: 0; resize: none; overflow-y: scroll; background: #fff; font: inherit; font-size: 13px; line-height: 18px; color: #878787; }
+.prw__ta textarea::placeholder { color: #878787; }
+.prw__count { position: absolute; right: 0; top: 100%; font-size: 10px; line-height: 11px; color: #626262; }
+
+.prw__mdesc { margin-top: 8px; font-size: 11px; line-height: 15px; color: #727272; }
+.prw__media { margin: 10px -5px 0; display: flex; flex-wrap: wrap; }
+.prw__mitem { position: relative; width: 70px; padding: 0 5px 10px; }
+.prw__mbox { position: relative; width: 60px; height: 60px; background: #fff; border: 1px solid #d4d4d4; cursor: pointer; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.prw__mbox img, .prw__mbox video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.prw__mbox input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.prw__mdel { position: absolute; right: 5px; top: 0; width: 18px; height: 18px; border: 0; background: rgba(0, 0, 0, .6); color: #fff; font-size: 12px; line-height: 18px; cursor: pointer; }
+
+.prw__sel { position: relative; height: 36px; border: 1px solid #d4d4d4; background: #fff; cursor: pointer; }
+.prw__selbtn { display: flex; align-items: center; height: 34px; padding: 0 10px; font-size: 13px; line-height: 26px; color: #878787; }
+.prw__seltext { display: inline-block; width: 80px; margin: 0 10px 0 0; }
+.prw__stars { display: inline-flex; gap: 2px; position: relative; top: -1px; }
+.prw__stars svg { display: block; }
+.prw__arrow { position: absolute; right: 10px; top: 14px; }
+.prw__list { position: absolute; left: -1px; right: -1px; top: 100%; z-index: 2; background: #fff; border: 1px solid rgba(0, 0, 0, .1); padding: 4px 4px 4px; list-style: none; }
+.prw__list li { display: flex; align-items: center; height: 22px; padding: 0 5px; font-size: 13px; color: #878787; cursor: pointer; }
+.prw__list li.on, .prw__list li:hover { background: #444; color: #ddd; }
+
+.prw__capimg { display: block; max-width: 100%; height: auto; margin-bottom: 8px; border: 1px solid #d4d4d4; }
+.prw__capin { display: block; width: 100%; height: 36px; padding: 0 10px; border: 0; outline: 0; background: #fff; font: inherit; font-size: 13px; color: #878787; }
+.prw__capin::placeholder { color: #878787; }
+
+.prw__foot { position: absolute; left: 0; right: 0; bottom: 0; height: 67px; padding: 13px 21px; background: #fff; border-top: 1px solid #ededed; }
+.prw__submit { display: block; width: 100%; height: 40px; border: 0; border-radius: 3px; background: #10960b; color: #fff; font: inherit; font-size: 14px; line-height: 40px; font-weight: 700; cursor: pointer; }
+.prw__submit:disabled { opacity: .6; cursor: default; }
+.prw__fade { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); padding: 14px; border-radius: 4px; background: #000; color: #fff; font-size: 12px; white-space: nowrap; opacity: 0; transition: opacity .3s; pointer-events: none; }
+.prw__fade.on { opacity: 1; }
